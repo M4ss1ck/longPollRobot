@@ -1,7 +1,7 @@
 {
-  "name": "telegraf-bot",
+  "name": "longpollrobot",
   "version": "1.0.0",
-  "description": "Telegram bot using telegraf",
+  "description": "Bot for polls with many options in Telegram",
   "main": "main.js",
   "scripts": {
     "start": "node -r dotenv/config main.js"
