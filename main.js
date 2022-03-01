@@ -20,36 +20,6 @@ bot.command("ping", (ctx) => {
   ctx.reply(`[@${botUsername}] Tiempo activo: ${tiempo}`);
 });
 
-bot.command("info", async (ctx) => {
-  //console.log(ctx);
-  if (ctx.message.reply_to_message) {
-    const msgInfo = JSON.stringify(ctx.message.reply_to_message)
-      .replace(/"/g, " ")
-      .replace(/,/g, ",\n")
-      .replace(/{/g, "\n {");
-
-    const text = "Información del mensaje:\n" + msgInfo;
-    if (text.length < 4096) {
-      ctx.replyWithHTML(text, {
-        reply_to_message_id: ctx.message.reply_to_message.message_id,
-      });
-    } else {
-      await ctx.replyWithHTML(text.substring(0, 4096), {
-        reply_to_message_id: ctx.message.reply_to_message.message_id,
-      });
-      await ctx.replyWithHTML(text.substring(4096, text.length), {
-        reply_to_message_id: ctx.message.reply_to_message.message_id,
-      });
-    }
-  } else {
-    ctx.replyWithHTML(
-      "<code>/info</code> se usa respondiendo un mensaje. Tal vez prefieras usar /me"
-    );
-  }
-});
-
-// comando ayuda
-
 bot.command(["start", "jelou"], (ctx) => {
   ctx.replyWithHTML(
     `<b>Hola, ${ctx.message.from.first_name}!</b>\nEnvía <code>/poll Titulo de la encuesta;opción 1;opción 2;...</code> para crear una encuesta pública`
