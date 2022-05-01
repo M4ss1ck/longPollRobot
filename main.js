@@ -1,4 +1,5 @@
 import { Telegraf } from "telegraf";
+import { performance } from "perf_hooks";
 
 const my_id = process.env.ADMIN_ID;
 // hora en que arranca el bot
